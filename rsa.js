@@ -43,11 +43,6 @@ var lcm = (a,b) => {
 }
 
 
-console.log("n:"+find_n())
-console.log(gcd(123,276))
-console.log(lcm(123,276))
-//=======
-
 var find_e = (p,q) => {
     var phi = lcm(p - 1, q - 1)
     for(var i = 2; i < phi; i ++){
@@ -69,14 +64,39 @@ var find_d = (arreglo) => {
     }
 }
 
-/*
-var prueba = find_n()
-var e = find_e(prueba[0], prueba[1])
-console.log(prueba)
-console.log(e)
-console.log(gcd(e, prueba[0] - 1))
-console.log(gcd(e, prueba[1] - 1))
+var encrypt = (n,e,m)=>{
+    var c = (m^e)%n
+    console.log(c)
+}
 
-var e = find_e(prueba[0], prueba[1])
+// b=base
+// n=exponente
+// m=modulo
+var expon = (b, n, m) => {
+    n = n.toString(2)
+    x = 1 
+    power = b % m 
+    for(var i = (n.length - 1); i >= 0; i --){
+        if(n.charAt(i) == 1){
+            x = (x * power) % m 
+        }
+        power = (power * power) % m 
+    }
+    return x 
+}
+
+//------
+// n = [p,q,p*q]
+var n = find_n();
+console.log('n: '+n)
+
+// e es coprimo (p-1),(q-1)
+var e = find_e(n[0],n[1])
+console.log('e: '+e)
+
+// d-> private key
 var d = find_d(e)
-console.log(">>>>>>d:"+d)*/
+console.log('d: '+d)
+console.log((d*e[0])%e[1])
+
+// 
