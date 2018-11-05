@@ -65,8 +65,12 @@ var find_d = (arreglo) => {
 }
 
 var encrypt = (n,e,m)=>{
-    var c = (m^e)%n
-    console.log(c)
+    var c = expon(m,e,n)
+    return(c)
+}
+
+var decrypt = (c,d,n)=>{
+    return expon(c,d,n)
 }
 
 // b=base
@@ -100,3 +104,6 @@ console.log('d: '+d)
 console.log((d*e[0])%e[1])
 
 // 
+var encryptao = encrypt(n[2],e[0],255)
+console.log(encryptao)
+console.log(decrypt(encryptao,d,n[1]))
