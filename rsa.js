@@ -42,16 +42,26 @@ var lcm = (a,b) => {
     return (a * b) / gcd(a,b)
 }
 
-<<<<<<< HEAD
 
 console.log("n:"+find_n())
 console.log(gcd(123,276))
 console.log(lcm(123,276))
-=======
+//=======
+
 var find_e = (p,q) => {
     var phi = lcm(p - 1, q - 1)
     for(var i = 2; i < phi; i ++){
         if(gcd(i, phi) == 1){
+            return i
+        }
+    }
+}
+
+
+var find_d = (e) => {
+    var phi = lcm(p-1, q-1)
+    for(var i = 2; i<phi; i ++){
+        if(e*i%phi == 1){
             return i
         }
     }
@@ -63,4 +73,6 @@ console.log(prueba)
 console.log(e)
 console.log(gcd(e, prueba[0] - 1))
 console.log(gcd(e, prueba[1] - 1))
->>>>>>> 36cba5d149909d6c20372b065a61c3b1ce66a2c3
+
+var d = find_d(e)
+console.log(">>>>>>d:"+d)
