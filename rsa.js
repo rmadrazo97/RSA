@@ -52,14 +52,16 @@ var find_e = (p,q) => {
     var phi = lcm(p - 1, q - 1)
     for(var i = 2; i < phi; i ++){
         if(gcd(i, phi) == 1){
-            return i
+            var ephi = [i,phi]
+            return ephi
         }
     }
 }
 
 
-var find_d = (e) => {
-    var phi = lcm(p-1, q-1)
+var find_d = (arreglo) => {
+    var e = arreglo[0]
+    var phi = arreglo[1]
     for(var i = 2; i<phi; i ++){
         if(e*i%phi == 1){
             return i
@@ -67,6 +69,7 @@ var find_d = (e) => {
     }
 }
 
+/*
 var prueba = find_n()
 var e = find_e(prueba[0], prueba[1])
 console.log(prueba)
@@ -74,5 +77,6 @@ console.log(e)
 console.log(gcd(e, prueba[0] - 1))
 console.log(gcd(e, prueba[1] - 1))
 
+var e = find_e(prueba[0], prueba[1])
 var d = find_d(e)
-console.log(">>>>>>d:"+d)
+console.log(">>>>>>d:"+d)*/
