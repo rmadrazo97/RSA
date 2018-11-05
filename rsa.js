@@ -1,5 +1,4 @@
-const primality = require("primality")
-
+const primality = require("primality");
 var prime_numbers = () => {
     var start = false 
     while(!start){
@@ -40,5 +39,7 @@ var lcm = (a,b) => {
     return (a * b) / gcd(a,b)
 }
 
+
+console.log("n:"+find_n())
 console.log(gcd(123,276))
 console.log(lcm(123,276))
