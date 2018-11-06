@@ -107,3 +107,5 @@ console.log((d*e[0])%e[1])
 var encryptao = encrypt(n[2],e[0],255)
 console.log(encryptao)
 console.log(decrypt(encryptao,d,n[1]))
+
+// hola mundo ----------
