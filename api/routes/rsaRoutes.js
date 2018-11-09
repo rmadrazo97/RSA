@@ -4,8 +4,13 @@ module.exports = function(app) {
 
   // todoList Routes
   app.route('/getKey')
-    .get(rsa.get_key)
+    .get(rsa.get_keys)
 
+  app.route('/encrypt')
+    .get(rsa.encrypt)
+  
+  app.route('/decrypt')
+    .get(rsa.decrypt)
 
   app.route('/verifyKey')
     .get(rsa.verify_key)
