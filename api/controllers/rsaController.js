@@ -15,8 +15,7 @@ exports.encrypt = function(req,res){
     //getting n and d
     var n = rsa.find_n();
     var e = rsa.find_e(n[0],n[1])
-    //
-    var phrase = "Hola"
+    var phrase = req.params.frase1
     var secret = []
     var asciichar = ""
     for(var i = 0; i<=phrase.length-1; i ++){
@@ -38,12 +37,17 @@ exports.encrypt = function(req,res){
 }
 
 exports.decrypt = function(req,res){
-    var secret = [16597850,15671740,8212092,21050196]
-    foreach elem in secret {
-        
-    }
+    var secret = [512000, 328509, 474552, 328509]
+    var e = [3, 26438360] 
+    var d = rsa.find_d(e)
+    var n = 52891303
+    var resultado = []
+    secret.forEach((element) => {
+        var yes = String.fromCharCode(rsa.dec(element, d, n))
+        resultado.push(yes)
+    })
     // variables que vienen ya. 
-    res.json({Frase: response})
+    res.json({Frase: resultado})
 }
 
 exports.verify_key = function(req,res){

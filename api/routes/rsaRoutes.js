@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.route('/getKey')
     .get(rsa.get_keys)
 
-  app.route('/encrypt')
+  app.route('/encrypt/:frase1')
     .get(rsa.encrypt)
   
   app.route('/decrypt')
@@ -14,5 +14,4 @@ module.exports = function(app) {
 
   app.route('/verifyKey')
     .get(rsa.verify_key)
-    // post? 
 };
