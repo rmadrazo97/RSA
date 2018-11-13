@@ -17,7 +17,7 @@ exports.encrypt = function(req,res){
     var e = rsa.find_e(n[0],n[1])
     //
     var phrase = "Hola"
-    var secret = ""
+    var secret = []
     var asciichar = ""
     for(var i = 0; i<=phrase.length-1; i ++){
         //leyendo caracter por caracter
@@ -26,10 +26,11 @@ exports.encrypt = function(req,res){
         asciichar = rsa.enc(n[2],e[0],char.charCodeAt(0))
 
         // convirtiendo a unicode: 
-        var encchar = String.fromCharCode(asciichar);
+        //var encchar = String.fromCharCode(asciichar);
 
         //agregando a la frase secreta uno por uno
-        secret += encchar.toString();
+        //secret += encchar.toString();
+        secret[i] = asciichar
     }
     console.log(secret)
     var result = {Frase: phrase, Secreto: secret, N: n, E:e[0], phi:e[1]}
@@ -37,7 +38,10 @@ exports.encrypt = function(req,res){
 }
 
 exports.decrypt = function(req,res){
-    var secret = '';
+    var secret = [16597850,15671740,8212092,21050196]
+    foreach elem in secret {
+        
+    }
     // variables que vienen ya. 
     res.json({Frase: response})
 }
